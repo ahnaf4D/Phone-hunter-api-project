@@ -51,12 +51,17 @@
         <div class="w-2/4 mx-auto flex justify-center my-8">
             <label class="input bg-[#100F0F0D] flex items-center gap-2 w-full">
                 <img src="./images/search-icon.png" alt="search-icon">
-                <input type="text" class="" placeholder="Search your phone" />
+                <input type="text" class="" placeholder="Search your phone" id="search-phone-field" />
             </label>
             <div>
-                <button class="btn btn-primary text-white text-xl font-bold">Search</button>
+                <button class="btn btn-primary text-white text-xl font-bold" id="search-phone-button">Search</button>
             </div>
         </div>
+        <!-- Search Result -->
+        <div id="search-result-container" class="grid gap-4 grid-cols-1 md:grid-cols-2 lg:grid-cols-3">
+            <!-- Dynamic card added here -->
+        </div>
+    
     </main>
     <!-- Footer here -->
 <footer class="bg-[#0D6EFD0D] text-black font-opensans">
