@@ -10,17 +10,15 @@ const searchResult = async (searchText) => {
     if(phonesDataLength === 0){
         alert('404! Data  not found');
     }
+
     displayServerData(phonesData);
+    // showAllData(phonesData);
 }
 
 const displayServerData = (phones) => {
     const showAllBtn = document.getElementById('show-all-btn');
-    // console.log(phones)
-    // Remove previous data 
     searchResultContainer.textContent = '';
     phones = phones.slice(0, 12);
-    // console.log(showAllBtn);
-    // console.log(phones.length);
     if (phones.length >= 12) {
         showAllBtn.classList.remove('hidden');
     }
