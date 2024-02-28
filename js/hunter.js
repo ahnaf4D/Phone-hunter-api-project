@@ -51,8 +51,6 @@ searchButton.addEventListener('click', () => {
     const inputFieldText = searchInputField.value;
     displayLoading();
     searchResult(inputFieldText);
-
-
 })
 // Loading Functionality
 const displayLoading = () => {
