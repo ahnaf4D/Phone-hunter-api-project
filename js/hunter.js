@@ -1,6 +1,6 @@
 const searchResultContainer = document.getElementById('search-result-container');
 const loadingAnimation = document.getElementById('loading');
-const searchResult = async (searchText) => {
+const searchResult = async (searchText , isShowAll) => {
     displayLoading();
     const response = await fetch(`https://openapi.programming-hero.com/api/phones?search=${searchText}`)
     hideLoading();
@@ -11,14 +11,18 @@ const searchResult = async (searchText) => {
         alert('404! Data  not found');
     }
 
-    displayServerData(phonesData);
+    displayServerData(phonesData , isShowAll);
     // showAllData(phonesData);
 }
 
-const displayServerData = (phones) => {
+const displayServerData = (phones , isShowAll) => {
+
     const showAllBtn = document.getElementById('show-all-btn');
+    if(!isShowAll){
+     phones = phones.slice(0, 12);
+        
+    }
     searchResultContainer.textContent = '';
-    phones = phones.slice(0, 12);
     if (phones.length >= 12) {
         showAllBtn.classList.remove('hidden');
     }
@@ -59,3 +63,7 @@ const displayLoading = () => {
 const hideLoading = () => {
     loadingAnimation.classList.add('hidden');
 }
+const showAllBtns = document.getElementById('show_all_btn').addEventListener('click' , function(){
+    const inputFieldText = searchInputField.value;
+    searchResult(inputFieldText , true);
+})
