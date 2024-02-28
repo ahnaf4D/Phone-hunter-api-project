@@ -75,15 +75,16 @@ const showModals = async (id) => {
     const res = await fetch(`https://openapi.programming-hero.com/api/phone/${id}`)
     const data = await res.json();
     const phone = data.data;
+    // console.log(phone);
     showDetailsInModal(phone);
 }
 const showDetailsInModal = (phone) => {
     const parent = document.getElementById('my_modal_1');
     const storeInformation = document.createElement('div');
     storeInformation.classList.add(`modal-box`);
-    storeInformation.innerText = `
+    storeInformation.innerHTML = `
         <img src = '${phone.image}'/>
-        <h3 class="text-2xl font-bold">${phone.phone_name}</h3>
+        <h3 class = "text-2xl font-bold">${phone.name}</h3>
         <p><span>Storage : ${phone?.mainFeatures.storage}</span></p>
         <p><span>Display Size : ${phone?.mainFeatures.displaySize}</span></p>
         <p><span>Chipset : ${phone?.mainFeatures.chipSet}</span></p>
