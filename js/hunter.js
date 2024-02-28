@@ -63,8 +63,9 @@ const displayLoading = () => {
 const hideLoading = () => {
     loadingAnimation.classList.add('hidden');
 }
-const showAllBtns = document.getElementById('show_all_btn').addEventListener('click' , function(){
+const showAllBtns = document.getElementById('show_all_btn');
+showAllBtns.addEventListener('click' , function(event){
     const inputFieldText = searchInputField.value;
     searchResult(inputFieldText , true);
-    
+    showAllBtns.classList.add('hidden');
 })
