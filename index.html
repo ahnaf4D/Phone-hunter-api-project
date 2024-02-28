@@ -12,7 +12,8 @@
     <script src="https://cdn.tailwindcss.com"></script>
     <!-- Custom CSS -->
     <link rel="stylesheet" href="./css/custom.css">
-
+    <!-- Box icons cdn -->
+    <link href='https://unpkg.com/boxicons@2.1.4/css/boxicons.min.css' rel='stylesheet'>
 </head>
 
 <body>
@@ -59,18 +60,22 @@
     </main>
     <!-- Footer here -->
 <footer class="bg-[#0D6EFD0D] text-black font-opensans">
-<div class="flex flex-row justify-between border-2">
-    <div>
-        <h1 class="font-bold text-5xl">Hot Gadgets</h1>
-    <p class="font-semibold text-xl text-[#706F6F]">You can definitely work.</p>
+    <!-- Footer Top part -->
+    <div class="container mx-auto flex justify-between items-center py-20">
+       <div>
+        <h1 class="font-bold text-5xl text-[#100F0F]">Hot Gadgets</h1>
+        <p class="text-xl font-semibold text-[#706F6F]">You can definitely work.</p>
+       </div>
+       <div class="join">
+        <button class="btn join-item"><i class='bx bxl-facebook text-2xl'></i></button>
+        <button class="btn join-item"><i class='bx bxl-twitter text-2xl'></i></button>
+       <button class="btn join-item"> <i class='bx bxl-instagram text-2xl'></i></button>
+       &nbsp;
+       &nbsp;
+       &nbsp;
+       <button class="btn join-item btn-primary text-white text-xl font-bold">Join Premium</button>
+      </div>
     </div>
-    <fieldset class="form-control w-full">
-        <div class="join">
-         <img src="./images/social.png" alt=""> 
-          <button class="btn btn-primary join-item">Subscribe</button>
-        </div>
-      </fieldset>
-</div>
     <hr>
     <div class="footer grid-cols-4 p-10">
         <nav>
