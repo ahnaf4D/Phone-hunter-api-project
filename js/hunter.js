@@ -1,13 +1,29 @@
 const searchResultContainer = document.getElementById('search-result-container');
-console.log(searchResultContainer);
-const searchResult = async(searchText) => {
-    const response = await fetch(`https://openapi.programming-hero.com/api/phones?search=${searchText}`)
+const loadingAnimation = document.getElementById('loading');
+const searchResult = async (searchText) => {
+    const response = await fetch(`https://openapi.programming-hero.com/api/phones?search=${searchText}`) 
+    displayLoading();
     const data = await response.json();
-    displayServerData(data.data);
+    const phonesData = data.data;
+    hideLoading();
+    displayServerData(phonesData);
 }
 
 const displayServerData = (phones) => {
-    console.log(phones);
+    const showAllBtn = document.getElementById('show-all-btn');
+    // console.log(phones)
+    // Remove previous data 
+    searchResultContainer.textContent = '';
+    phones = phones.slice(0, 12);
+    // console.log(showAllBtn);
+    // console.log(phones.length);
+    if (phones.length >= 12) {
+        showAllBtn.classList.remove('hidden');
+    }
+    else {
+        showAllBtn.classList.add('hidden');
+    }
+
     phones.forEach(element => {
         const createCardElement = document.createElement('div');
         createCardElement.classList = `card bg-base-100 shadow-xl`
@@ -23,13 +39,23 @@ const displayServerData = (phones) => {
         `
         searchResultContainer.appendChild(createCardElement);
     })
+
 }
 
 const searchButton = document.getElementById('search-phone-button');
 // Search Input Field Data
 const searchInputField = document.getElementById('search-phone-field');
-searchButton.addEventListener('click',()=>{
+searchButton.addEventListener('click', () => {
     const inputFieldText = searchInputField.value;
+    displayLoading();
     searchResult(inputFieldText);
 
+
 })
+// Loading Functionality
+const displayLoading = () => {
+    loadingAnimation.classList.add('hidden');
+}
+const hideLoading = () => {
+    loadingAnimation.classList.remove('hidden');
+}

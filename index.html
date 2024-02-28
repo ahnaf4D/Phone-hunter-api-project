@@ -47,6 +47,7 @@
     </header>
     <main class="font-poppins">
         <h1 class="text-center text-[#100F0F] font-semibold text-4xl mt-16">Search your phone</h1>
+        <!-- Loading Spinner -->
         <!-- Search Here -->
         <div class="w-2/4 mx-auto flex justify-center my-8">
             <label class="input bg-[#100F0F0D] flex items-center gap-2 w-full">
@@ -57,10 +58,19 @@
                 <button class="btn btn-primary text-white text-xl font-bold" id="search-phone-button">Search</button>
             </div>
         </div>
+        <div id="loading" class="text-center hidden">
+            <span class="loading loading-spinner text-primary loading-lg"></span>
+        </div>
         <!-- Search Result -->
         <div id="search-result-container" class="grid gap-4 grid-cols-1 md:grid-cols-2 lg:grid-cols-3">
             <!-- Dynamic card added here -->
+            <div class="hidden min-h-screen font-poppins" id="not-serverdiv">
+                <h1 class="text-center text-6xl text-blue-700">404! No Data Found in the server</h1>
+            </div>
         </div>
+       <div class="text-center hidden" id="show-all-btn">
+        <button class="btn btn-primary text-white text-xl font-bold">Show All</button>
+       </div>
     
     </main>
     <!-- Footer here -->
