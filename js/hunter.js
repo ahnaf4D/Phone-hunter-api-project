@@ -1,11 +1,12 @@
 const searchResultContainer = document.getElementById('search-result-container');
 const loadingAnimation = document.getElementById('loading');
 const searchResult = async (searchText) => {
-    const response = await fetch(`https://openapi.programming-hero.com/api/phones?search=${searchText}`) 
     displayLoading();
+    const response = await fetch(`https://openapi.programming-hero.com/api/phones?search=${searchText}`)
+    hideLoading();
     const data = await response.json();
     const phonesData = data.data;
-    hideLoading();
+
     displayServerData(phonesData);
 }
 
@@ -54,8 +55,8 @@ searchButton.addEventListener('click', () => {
 })
 // Loading Functionality
 const displayLoading = () => {
-    loadingAnimation.classList.add('hidden');
+    loadingAnimation.classList.remove('hidden');
 }
 const hideLoading = () => {
-    loadingAnimation.classList.remove('hidden');
+    loadingAnimation.classList.add('hidden');
 }
