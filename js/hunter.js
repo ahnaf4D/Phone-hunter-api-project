@@ -6,7 +6,10 @@ const searchResult = async (searchText) => {
     hideLoading();
     const data = await response.json();
     const phonesData = data.data;
-
+    const phonesDataLength = phonesData.length;
+    if(phonesDataLength === 0){
+        alert('404! Data  not found');
+    }
     displayServerData(phonesData);
 }
 
