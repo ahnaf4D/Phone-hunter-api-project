@@ -1,4 +1,4 @@
-### Live Site At : https://ahnaf4d.github.io/Phone-hunter-api-project/
+### Live Site At : https://phoner-hunter.netlify.app/
 ### Project Resources
 [Phone Hunter API](https://github.com/ProgrammingHero1/phone-hunter-api)
 ## ⚠️Disclaimer
