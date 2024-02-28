@@ -12,6 +12,7 @@ const searchResult = async (searchText , isShowAll) => {
     }
 
     displayServerData(phonesData , isShowAll);
+    showModals(phonesData);
     // showAllData(phonesData);
 }
 
@@ -39,7 +40,7 @@ const displayServerData = (phones , isShowAll) => {
           <h2 class="card-title">${element.phone_name}</h2>
           <p>If a dog chews shoes whose shoes does he choose?</p>
           <div class="card-actions justify-center">
-            <button class="btn btn-primary text-white text-xl font-bold">Show Details</button>
+            <button class="btn btn-primary text-white text-xl font-bold" onclick = "showModals('${element.slug}')">Show Details</button>
           </div>
         </div>
         `
@@ -69,3 +70,10 @@ showAllBtns.addEventListener('click' , function(event){
     searchResult(inputFieldText , true);
     showAllBtns.classList.add('hidden');
 })
+const showModals = async(id) => {
+    // console.log(id);
+    const res = await fetch(`https://openapi.programming-hero.com/api/phones?search=${id}`)
+    const data = await res.json();
+    const phone = data.data;
+    console.log(phone);
+}
